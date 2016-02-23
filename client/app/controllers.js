@@ -1,8 +1,9 @@
 angular.module('gwarRoom')
-  .controller('MainController', MainController);
+  .controller('MainCtrl', MainCtrl);
 
-MainController.$inject = ['$scope', 'GWarService'];
+MainCtrl.$inject = ['$scope', 'detailService'];
 
-function MainController($scope, GWarService) {
+function MainCtrl($scope, detailService) {
   console.log("Hello from Home Controller")
+
 }

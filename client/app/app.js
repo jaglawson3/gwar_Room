@@ -2,11 +2,11 @@ angular.module('gwarRoom', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider) {
     console.log("GwarRoom app.js is alive!")
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/war-room');
 
     $stateProvider.state('/war-room', {
-      templateUrl: 'war-room.html',
-      controller: 'MainController',
+      templateUrl: 'templates/war-room.html',
+      controller: 'MainCtrl',
       url: '/war-room'
     })
   });

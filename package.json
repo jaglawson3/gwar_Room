@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jaglawson3/gwar_Room/blob/master/README.md",
   "dependencies": {
     "angular": "^1.5.0",
+    "axios": "^0.9.1",
     "express": "^4.13.4",
     "mongodb": "^1.4.40",
     "monk": "^1.0.1",

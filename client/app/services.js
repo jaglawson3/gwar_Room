@@ -1,8 +1,13 @@
 angular.module('gwarRoom')
-  .factory('GWarService', GWarService);
+  .factory('detailService', detailService);
 
-GWarService.$inject = ['$http']
+detailService.$inject = ['$stateParams']
 
-function GWarService($http) {
-  console.log("Hello from Real Estate Service")
+function detailService($stateParams) {
+  console.log("Hello from Detail Service")
+  var socket = io()
+  var details = []
+  socket.on("machines", function(data) {
+    return
+  })
 }
