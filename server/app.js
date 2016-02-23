@@ -7,3 +7,6 @@ var db = require('monk')('localhost/realState')
 var app = Express()
 var server = http.Server(app)
 var io = Socket(server)
+
+
+app.listen(process.env.PORT || 3000)
