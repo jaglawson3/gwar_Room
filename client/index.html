@@ -1,31 +1,27 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html ng-app="gwarRoom">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <base href="/">
-    <title></title>
+    <title>Galvanize War Room</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(client) app/vendor.css -->
-      <!-- bower:css -->
-      <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css({.tmp,client}) app/app.css -->
-      <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
-      <!-- endinjector -->
-    <!-- endbuild -->
+    <link rel="stylesheet" href="app/app.css">
   </head>
   <body ng-app="gwarRoom">
-    <navbar></navbar>
-    <div ui-view=""></div>
+    <div class="container">
+    <div class="page-header">
+      <h1>Galvanize War Room</h1>
+    </div>
+    <div ui-view></div>
+    </div>
     <footer></footer>
-      <script src="socket.io-client/socket.io.js"></script>
-      <script src="app/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+    <script src="app/app.js" charset="utf-8"></script>
+    <script src="app/controllers.js" charset="utf-8"></script>
+    <script src="app/services.js" charset="utf-8"></script>
   </body>
 </html>
