@@ -8,5 +8,10 @@ var app = Express()
 var server = http.Server(app)
 var io = Socket(server)
 
+app.use(Express.static("./client"))
 
 app.listen(process.env.PORT || 3000)
+
+server.listen(8080, function () {
+  console.log("listening on 8080")
+})
