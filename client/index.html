@@ -2,26 +2,21 @@
 <html ng-app="gwarRoom">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <base href="/">
     <title>Galvanize War Room</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="app/app.css">
   </head>
-  <body ng-app="gwarRoom">
+  <body>
     <div class="container">
-    <div class="page-header">
-      <h1>Galvanize War Room</h1>
+      <div class="page-header">
+        <h1>Galvanize War Room</h1>
+      </div>
+      <div ui-view></div>
     </div>
-    <div ui-view></div>
-    </div>
-    <footer></footer>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
-    <script src="app/app.js" charset="utf-8"></script>
-    <script src="app/controllers.js" charset="utf-8"></script>
-    <script src="app/services.js" charset="utf-8"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers.js"></script>
+    <script src="app/services.js"></script>
   </body>
 </html>
