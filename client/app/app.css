@@ -17,7 +17,13 @@ nav {
 
  nav > h1 {
    margin: 1vw;
+   font-size: 2vw;
+   animation: blinker 1s linear infinite;
  }
+
+@keyframes nav > h1 {
+  50% { opacity: 0.0; }
+}
 
  nav > a {
    margin: 1vw;
@@ -25,7 +31,7 @@ nav {
  }
 
  .set{
-   padding-left: 65vw;
+   padding-left: 64vw;
  }
 
  a: visited {
@@ -57,7 +63,8 @@ li {
    text-align: center;
    margin-left: 1vw;
    margin-right: 1vw;
-   border-radius: 6vw;
+   border-radius: 4vw;
+   border-left: solid 1vw black;
  }
 
  .server-details {
@@ -95,4 +102,10 @@ li {
 
 .detail-container {
 color: black;
+}
+
+.select1, .select2 {
+  top-margin: 5vw;
+  width: 5vw;
+  font-size: 1vw;
 }
