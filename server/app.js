@@ -45,7 +45,7 @@ io.on('connection', function (socket) {
  				}
  			})
  		}).then(function(storageData){
- 			console.log('stored data!')
+ 			console.log('stored that data!')
  		})
  	})
  });
