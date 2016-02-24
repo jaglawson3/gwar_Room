@@ -1,0 +1,13 @@
+<div class="servers">
+   <div class="server" ng-repeat="server in servers" ui-sref="details({id: $index})"ng-class="{green: server.responseTime < 0.05, yellow: server.responseTime >= 0.05, red: server.responseTime > 0.5}">
+     <h1>Server Name: {{server.name}}</h1>
+     <div class="detail">
+        <h1>Response time:</h1>
+        <h2>{{server.responseTime | number: 4}}</h2>
+       <div>Temperature: {{server.temp}}</div>
+       <div>CPU: {{server.cpu}}</div>
+       <div>Memory: {{server.memory}}</div>
+       <div>OS: {{server.os}}</div>
+     </div>
+   </div>
+ </div>

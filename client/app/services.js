@@ -1,13 +1,21 @@
 angular.module('gwarRoom')
-  .factory('detailService', detailService);
+   .factory('ServerService', ServerService);
 
-detailService.$inject = ['$stateParams']
+ function ServerService() {
+   console.log("I will get your data from you if it kills me!")
 
-function detailService($stateParams) {
-  console.log("Hello from Detail Service")
-  var socket = io()
-  var details = []
-  socket.on("machines", function(data) {
-    return
-  })
-}
+   var socket = io();
+   var callbacks = [];
+
+   socket.on('status', function(data) {
+     callbacks.forEach(function (callback) {
+       callback(data.body.data);
+     });
+   });
+
+   return {
+     on: function (callback) {
+       callbacks.push(callback);
+     }
+   };
+ }

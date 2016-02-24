@@ -1,9 +1,17 @@
 angular.module('gwarRoom')
-  .controller('MainCtrl', MainCtrl);
+   .controller('OverviewController', OverviewController)
+   .controller('DetailsController', DetailsController);
 
-MainCtrl.$inject = ['$scope', 'detailService'];
+function OverviewController($scope, ServerService) {
+   ServerService.on(function(data) {
+     $scope.servers = data;
+     $scope.$apply();
+   });
+}
 
-function MainCtrl($scope, detailService) {
-  console.log("Hello from Home Controller")
-
+function DetailsController($scope, $stateParams, ServerService) {
+   ServerService.on(function(data) {
+     $scope.server = data[$stateParams.id];
+     $scope.$apply();
+   });
 }

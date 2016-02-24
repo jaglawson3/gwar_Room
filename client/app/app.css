@@ -1,1 +1,98 @@
+body {
+  background-color: slategray;
+  color: #fff;
+  font-family: sans-serif;
+}
 
+nav {
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: radial-gradient(slategray, black);
+  color:#FC1501;
+  border-top-left-radius: 2vw;
+  border-bottom-right-radius: 2vw;
+ }
+
+ nav > h1 {
+   margin: 1vw;
+ }
+
+ nav > a {
+   margin: 1vw;
+   color:white;
+ }
+
+ .set{
+   padding-left: 65vw;
+ }
+
+ a: visited {
+   color:white;
+ }
+
+li {
+  list-style: none;
+}
+
+.servers {
+   display: flex;
+   flex-direction: row;
+   width:99vw;
+   height:70vh;
+   align-items: center;
+   background: linear-gradient(#3300FF, slategray);
+   color: black;
+   border-top-right-radius: 2vw;
+   border-bottom-left-radius: 8vw;
+ }
+
+.server {
+   width:30vw;
+   display: flex;
+   height: 20vw;
+   padding: 4vw;
+   flex-direction: column;
+   text-align: center;
+   margin-left: 1vw;
+   margin-right: 1vw;
+   border-radius: 6vw;
+ }
+
+ .server-details {
+   width:18vw;
+   height:20vw;
+   align-items: center;
+   margin: 0 auto;
+   padding: 0 auto;
+   text-align: center;
+   color: black;
+ }
+
+.red {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(orange, red); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(orange, red); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(orange, red);
+  background: radial-gradient(orange, red);
+}
+
+.green {
+  background: green; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(lightgreen, green); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(lightgreen, green); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(lightgreen, green);
+  background: radial-gradient(lightgreen, green);
+}
+.yellow {
+  background: yellow; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(red, yellow); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(red, yellow); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(red, yellow);
+  background: radial-gradient(red, yellow);
+}
+
+.detail-container {
+color: black;
+}

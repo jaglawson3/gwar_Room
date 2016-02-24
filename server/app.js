@@ -1,49 +1,71 @@
-var Express = require("express")
-var Socket = require("socket.io")
-var http = require("http")
-var unirest = require('unirest')
-var warroom = require("./warroom-client")
-var db = require('monk')('localhost/gwarRoom')
+var Express = require("express");
+var Socket = require("socket.io");
+var http = require("http");
+var unirest = require('unirest');
+var warroom = require("./warroom-client");
+var db = require('monk')('mongodb://localhost/gwarroom');
+var database = db.get('info');
 
-var app = Express()
-var server = http.Server(app)
-var io = Socket(server)
+var app = Express();
+var server = http.createServer(app);
+var io = Socket(server);
 
+app.use(Express.static("./client"));
 
-app.use(Express.static("./client"))
+var port = (process.env.PORT || '3000');
+app.set('port', port);
 
-// warroom((error, data) => console.log(data))
+server.listen(port);
 
+server.listen(port, function () {
+  console.log("listening on " + port)
+});
 
+io.on('connection', function (socket) {
+ 	warroom(function(err, data) {
+ 		if(err){
+ 			console.log(err);
+ 			return
+ 		} else {
+ 			var zeeData = data.data;
+ 			storageData = zeeData.map(function(server){
+ 			return new Promise(function(resolve, reject) {
+ 				storeData(server)
+ 					.then(function(sever) {
+ 						averageIt(server)
+ 						resolve(server)
+ 					})
+ 				})
+ 			})
+ 		}
+ 		Promise.all(storageData).then(function(servers) {
+ 			socket.emit("status", {
+ 				body: {
+ 					data: servers
+ 				}
+ 			})
+ 		}).then(function(storageData){
+ 			console.log('stored data!')
+ 		})
+ 	})
+ });
 
-warroom(function (error, data) {
-  setInterval(function () {
-    var server1 = [];
-    var server2 = [];
-    var server3 = [];
-    function getDetailData () {
-      server1.push(data.data[0].name, data.data[0].cpu, data.data[0].cpu, data.data[0].memory);
-      server2.push(data.data[1].name, data.data[1].cpu, data.data[1].cpu, data.data[1].memory);
-      server3.push(data.data[2].name, data.data[2].cpu, data.data[2].cpu, data.data[2].memory);
-    }
-    getDetailData();
-    console.log(server1, server2, server3);
-    // console.log(data) // OR insert this data...
-  }, 2000)
-})
+ function averageIt(data) {
+  	return new Promise(function(res, rej){
+  		db.get('info').find({ id: data.id }).success(function(results) {
+  			var average;
+  			for(var info in results) {
+  				average = average + results[info].responseTime;
+  			}
+  			data.average = average / 100;
+  			res(data);
+  		})
+  	})
+ };
 
-io.on("connection", function (socket) {
-  socket.emit("machines", {
-    servers: server1, server2, server3
-  })
-})
-
-
-app.listen(process.env.PORT || 3000)
-
-server.listen(8080, function () {
-  console.log("listening on 8080")
-})
-
-//socket.emit on this
-//socket.on and li
+ function storeData(data) {
+  	return db.get('info').insert({
+  		id: data.id,
+  		responseTime: data.responseTime,
+   })
+ }

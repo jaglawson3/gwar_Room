@@ -1,0 +1,15 @@
+<div class="servers">
+   <div class="server-details" ng-class="{green: server.responseTime < 0.05,
+     yellow: server.responseTime >= 0.05,
+     red: server.responseTime > 0.5}">
+     <h2>{{server.name}}</h2>
+     <p>{{server.responseTime | number: 4}}</p>
+     <div class="detail">
+       <div ng-class="{good: server.responseTime < 0.05, warning: server.responseTime >= 0.05, critical: server.responseTime > 0.5}">Response time: {{server.responseTime | number: 4}}</div>
+         <div>Temperature: {{server.temp}}</div>
+         <div>CPU: {{server.cpu}}</div>
+         <div>Memory: {{server.memory}}</div>
+         <div>OS: {{server.os}}</div>
+     </div>
+   </div>
+ </div>
